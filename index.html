@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Ans accessibility quiz" />
+    <link rel="stylesheet" href="./css/style.css" />
+    <link rel="icon" type="image/png" href="./images/favicon-32x32.png">
+    <title>Frontend Mentor | Tip calculator app</title>
+  </head>
+
+  <body>
+    <main>
+      <img src="./images/logo.svg" alt="Splitter logo" class="logo"/>
+      <form method="post" action="#" id="tipcalculator">
+        <fieldset class="container_input">
+          <label for="bill" id="bill" class="input_labels">Bill
+            <input type="number" min="0" id="bill" data-bill="" name="bill" required placeholder="0" class="input_box"/>
+            <img src="./images/icon-dollar.svg" alt="icon dollar" class="icons" />
+          </label>
+  
+          <label for="select_tip" id="select_tip" class="input_labels">Select Tip %
+            <div class="btn_list">
+              <input type="button" name="select_tip" id="btn_tip" value="5%" />
+              <input type="button" name="select_tip" id="btn_tip" value="10%" />
+              <input type="button" name="select_tip" id="btn_tip" value="15%" />
+              <input type="button" name="select_tip" id="btn_tip" value="25%" />
+              <input type="button" name="select_tip" id="btn_tip" value="50%" />
+              <input type="button" name="select_tip" id="btn_custom_tip" value="Custom" />
+            </div>
+          </label>
+
+          <label for="number_of_people" id="number_of_people" class="input_labels">Number of People
+            <input type="number" min="0" id="number_of_people" name="number_of_people" required placeholder="0" class="input_box"/>
+            <img src="./images/icon-person.svg" alt="icon person" class="icons" />
+          </label>
+        </fieldset>
+
+        <fieldset class="container_output">
+          <div class="output_total">
+            <span for="tip_amount" id="tip_amount">Tip Amount</span>
+            <span id="person">/ person</span>
+            <span class="output">$0.00</span>
+          </div>
+          
+          <div class="output_total">
+            <span for="total" id="total">Total</span>
+            <span id="person">/ person</span>
+            <span class="output">$0.00</span>
+          </div>
+          
+          <input type="reset" value="RESET" id="btn_reset" />
+        </fieldset>
+
+      </form>
+    </main>
+    <footer>
+      Challenge by 
+      <a href="https://www.frontendmentor.io/" target="_blank">Frontend Mentor</a>. Coded by <a href="#" target="_blank">Tiago</a>.
+    </footer>
+  </body>
+</html>

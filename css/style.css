@@ -1,0 +1,204 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap');
+
+:root {
+    --color-strong-cyan: hsl(172, 67%, 45%);
+    --color-light-cyan: #0d686d;    
+    --color-very-dark-cyan: hsl(183, 100%, 15%);
+    --color-dark-grayish-cyan: hsl(186, 14%, 43%);
+    --color-grayish-cyan: hsl(184, 14%, 56%);
+    --color-light-grayish-cyan: hsl(185, 41%, 84%);
+    --color-very-light-grayish-cyan: hsl(189, 41%, 97%);
+    --color-White: hsl(0, 0%, 100%);
+    --font-size:1rem;
+    --font-family: 'Space Mono', monospace;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+}
+
+body {
+    font-family: var(--font-family);
+    font-size: var(--font-size);
+    font-weight: 700;
+    color: var(--color-very-dark-cyan);
+    background-color: var(--color-light-grayish-cyan);
+}
+
+.logo{
+    display: block;
+    margin: 14vh auto 8vh auto;
+}
+
+form {
+    background: var(--color-White);
+    border-radius: 1rem;
+    margin: 0 auto;
+    padding: 2rem;
+    display: flex;
+    column-gap: 3rem;
+    max-width: 48rem;
+
+}
+
+fieldset{
+    display: flex;
+    flex-wrap: wrap;
+    border: none;
+    flex-direction: column;
+    justify-content: space-between;
+    margin: 1em auto 0 auto;
+}
+
+.input_labels {
+    color: var(--color-dark-grayish-cyan);
+    font-size: 1em;
+    font-family: inherit;
+    display: flex;
+    flex-flow: row-wrap;
+}
+
+.icons{
+    width: 12px;
+    margin-left: 8px;
+    position: relative;
+    top: -32px;
+    left: 5px;
+}
+
+#bill,
+#number_of_people {
+    display: flex;
+    flex-direction: column;
+}
+
+#select_tip{
+    display: flex;
+    flex-flow: row-rap;
+    justify-content: space-around;
+}
+
+.input_box{
+    background-color: var(--color-very-light-grayish-cyan);
+    cursor: pointer;
+    width: 100%;
+    border-radius: 0.30rem;
+    text-align: right;
+    border: none;
+    padding: 6px 15px;
+    font-size: 24px;
+    font-family: inherit;
+    font-weight: 700;
+    color: var(--color-very-dark-cyan);
+}
+
+.input_box:focus{
+    outline:solid 2px var(--color-strong-cyan);
+    color: var(--color-very-dark-cyan);
+}
+
+.container_input {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 20px;
+    flex: 1;
+}
+
+.btn_list{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+@media (min-width:992px) {
+    #tipcalculator{
+        display: flex;
+        flex-direction: row;
+        max-width: 915px;
+    }    
+}
+
+#btn_tip{
+    border: none;
+    background: var(--color-very-dark-cyan);
+    color: var(--color-White);
+    font-weight: 700;
+    font-family: inherit;
+    font-size: 24px;
+    margin: 5px;
+    padding: 5px 15px;
+    border-radius: 5px;
+    min-width: 120px;
+    cursor: pointer;
+}
+
+#btn_tip:hover{
+    background: var(--color-light-grayish-cyan);
+    color: var(--color-very-dark-cyan);
+}
+
+#btn_tip:focus{
+    background: var(--color-strong-cyan);
+    color: var(--color-very-dark-cyan);
+}
+
+
+#btn_custom_tip{
+    border: none;
+    background: var(--color-very-light-grayish-cyan);
+    color: var(--color-grayish-cyan);
+    font-weight: 700;
+    font-family: inherit;
+    font-size: 24px;
+    margin: 5px;
+    padding: 5px 15px;
+    border-radius: 5px;
+    min-width: 120px;
+    cursor: pointer;
+}
+
+#btn_custom_tip:focus{
+    outline:solid 2px var(--color-strong-cyan);
+    color: var(--color-very-dark-cyan);
+}
+
+
+@media (min-width:992px) {
+    #btn_select_tip{
+        height: 50px;
+        width: 120px;
+    }
+}
+
+
+/*----------- Container output -----------*/
+.container_output {
+    background: var(--color-very-dark-cyan);
+    border-radius: 0.5rem;
+}
+
+#person {
+    color: var(--color-light-grayish-cyan)
+}
+
+#btn_reset {
+    border: none;
+    background: var(--color-light-cyan);
+    color: var(--color-very-dark-cyan);
+    font-weight: 700;
+    font-family: inherit;
+    font-size: 24px;
+    margin: 5px;
+    padding: 5px 15px;
+    border-radius: 5px;
+    min-width: 120px;
+    cursor: pointer;
+}
+
+#btn_reset:focus {
+    background: var(--color-strong-cyan);
+    color: var(--color-very-dark-cyan);
+}
