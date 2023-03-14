@@ -1,212 +1,278 @@
-@import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap");
 
 :root {
     --color-strong-cyan: hsl(172, 67%, 45%);
-    --color-light-cyan: #0d686d;    
+    --color-light-cyan: #0d686d;
+    --color-very-dark-cyan: hsl(180, 100%, 38%);
     --color-very-dark-cyan: hsl(183, 100%, 15%);
     --color-dark-grayish-cyan: hsl(186, 14%, 43%);
     --color-grayish-cyan: hsl(184, 14%, 56%);
     --color-light-grayish-cyan: hsl(185, 41%, 84%);
     --color-very-light-grayish-cyan: hsl(189, 41%, 97%);
+    --color-orange: #f47820;
     --color-White: hsl(0, 0%, 100%);
-    --font-size:1rem;
-    --font-family: 'Space Mono', monospace;
+    --main-font: "Space Mono", monospace;
+    font-size: 62.5%;
 }
+
+/*----------- Hide Arrows From Input Number -----------*/
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* Firefox */
+input[type="number"] {
+    -moz-appearance: textfield;
+}
+
+/*----------- Hide Arrows From Input Number -----------*/
+
 
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    text-decoration: none;
+}
+
+html {
+    scroll-behavior: smooth;
+    overflow-x: hidden;
 }
 
 body {
-    font-family: var(--font-family);
-    font-size: var(--font-size);
-    font-weight: 700;
-    color: var(--color-very-dark-cyan);
-    background-color: var(--color-light-grayish-cyan);
+    background: var(--color-light-grayish-cyan);
+    font-family: var(--main-font);
+    width: 100%;
+    height: 100vh;
 }
 
-.logo{
-    display: block;
-    margin: 14vh auto 8vh auto;
-}
-
-form {
-    background: var(--color-White);
-    border-radius: 1rem;
-    margin: 0 auto;
-    padding: 2rem;
+main {
     display: flex;
-    column-gap: 3rem;
-    max-width: 48rem;
-
-}
-
-fieldset{
-    display: flex;
-    flex-wrap: wrap;
-    border: none;
     flex-direction: column;
-    justify-content: space-between;
-    margin: 1em auto 0 auto;
+    justify-content: center;
+    align-items: center;
 }
 
-.input_labels {
-    color: var(--color-dark-grayish-cyan);
-    font-size: 1em;
-    font-family: inherit;
+.logo {
+    margin-top: 163px;
+    margin-bottom: 88px;
+    width: 87px;
+}
+
+#tipcalculator {
+    background: var(--color-White);
+    border-radius: 2.2rem;
+    padding: 3.2rem;
     display: flex;
-    flex-flow: row-wrap;
+    justify-content: space-evenly;
+    column-gap: 1rem;
+    font-weight: 700;
+    box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, .5);
+    min-width: 34.8rem;
 }
 
-.icons{
+/* Entrada de dados */
+.calculator-input {
+    color: var(--color-dark-grayish-cyan);
+    display: flex;
+    flex-direction: column;
+    min-width: 30rem;
+}
+
+.input-labels {
+    color: var(--color-dark-grayish-cyan);
+    font-size: 1.6rem;
+}
+
+.input-box {
+    cursor: pointer;
+    font-family: inherit;
+    font-size: 2.4rem;
+    text-align: right;
+    padding: 0 1rem;
+    border: none;
+    border-radius: 0.5rem;
+    font-weight: 700;
+    background-color: var(--color-very-light-grayish-cyan);
+    color: var(--color-very-dark-cyan);
+    width: 100%;
+    margin-top: 0.8rem;
+}
+
+.input-box:focus {
+    outline: solid 2px var(--color-strong-cyan);
+    color: var(--color-very-dark-cyan);
+}
+
+.icons {
     width: 12px;
     margin-left: 8px;
     position: relative;
-    top: -32px;
+    top: -28px;
     left: 5px;
 }
 
-#bill,
-#number_of_people {
-    display: flex;
-    flex-direction: column;
-}
-
-#select_tip{
-    display: flex;
-    flex-flow: row-rap;
-    justify-content: space-around;
-}
-
-.input_box{
-    background-color: var(--color-very-light-grayish-cyan);
-    cursor: pointer;
+.btn-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(90px, 1fr));
     width: 100%;
-    border-radius: 0.30rem;
-    text-align: right;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    margin-top: 0.8rem;
+}
+
+.btn {
     border: none;
-    padding: 6px 15px;
-    font-size: 24px;
+    font-weight: inherit;
     font-family: inherit;
-    font-weight: 700;
-    color: var(--color-very-dark-cyan);
+    font-size: 2.4rem;
+    border-radius: 0.4rem;
+    cursor: pointer;
+    text-align: center;
+    padding-top: 0.4rem;
+    padding-bottom: 0.4rem;
 }
 
-.input_box:focus{
-    outline:solid 2px var(--color-strong-cyan);
-    color: var(--color-very-dark-cyan);
-}
-
-.container_input {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    gap: 20px;
-    flex: 1;
-}
-
-.btn_list{
-    display: flex;
-    flex-wrap: wrap;
-}
-
-@media (min-width:992px) {
-    #tipcalculator{
-        display: flex;
-        flex-direction: row;
-        max-width: 915px;
-    }    
-}
-
-#btn_tip{
-    border: none;
+#btn-tip {
     background: var(--color-very-dark-cyan);
     color: var(--color-White);
-    font-weight: 700;
-    font-family: inherit;
-    font-size: 24px;
-    margin: 5px;
-    padding: 5px 15px;
-    border-radius: 5px;
-    min-width: 120px;
-    cursor: pointer;
 }
 
-#btn_tip:hover{
+#btn-tip:hover {
     background: var(--color-light-grayish-cyan);
     color: var(--color-very-dark-cyan);
 }
 
-#btn_tip:focus{
+#btn-tip:focus {
     background: var(--color-strong-cyan);
     color: var(--color-very-dark-cyan);
 }
 
-
-#btn_custom_tip{
-    border: none;
+#btn-custom-tip {
     background: var(--color-very-light-grayish-cyan);
-    color: var(--color-grayish-cyan);
-    font-weight: 700;
-    font-family: inherit;
-    font-size: 24px;
-    margin: 5px;
-    padding: 5px 15px;
-    border-radius: 5px;
-    min-width: 120px;
-    cursor: pointer;
-}
-
-#btn_custom_tip:focus{
-    outline:solid 2px var(--color-strong-cyan);
     color: var(--color-very-dark-cyan);
 }
 
-
-@media (min-width:992px) {
-    #btn_select_tip{
-        height: 50px;
-        width: 120px;
-    }
+#btn-custom-tip:focus {
+    outline: solid 2px var(--color-strong-cyan);
+    color: var(--color-very-dark-cyan);
 }
 
+.err-zero {
+    /*color: var(--color-orange);*/
+    color: var(--color-White);
+}
 
-/*----------- Container output -----------*/
-.container_output {
+.calculator-input,
+.calculator-output {
+    padding: 2rem;
+    max-width: 41.3rem;
+    max-height: 41.7rem;
+    width: 50%;
+}
+
+/* Resultados */
+.calculator-output {
     background: var(--color-very-dark-cyan);
-    border-radius: 0.5rem;
+    border-radius: 2.2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    min-width: 300px;
 }
 
-#person {
-    color: var(--color-light-grayish-cyan)
+.output-total {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding-left: 2rem;
+    padding-right: 2rem;
+    margin-bottom: 1.5rem;
+    width:100%;
 }
 
-#btn_reset {
+.total-amount {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-width: 98px;
+}
+
+.total {
+    color: var(--color-White);
+    font-size: 1.5rem;
+}
+
+.person {
+    color: var(--color-light-grayish-cyan);
+    font-size: 1.2rem;
+}
+
+.output {
+    color: var(--color-strong-cyan);
+    font-size: 4em;
+}
+
+
+#btn-reset {
     border: none;
     background: var(--color-light-cyan);
     color: var(--color-very-dark-cyan);
     font-weight: 700;
     font-family: inherit;
-    font-size: 24px;
-    margin: 5px;
-    padding: 5px 15px;
+    font-size: 2.4rem;
+    margin: 0 auto;
+    padding: 0.5rem 6rem;
     border-radius: 5px;
     min-width: 120px;
+    width: 100%;
+}
+
+#btn-reset:active {
+    background: #9fe8df;
+}
+
+#btn-reset:hover {
     cursor: pointer;
-}
-
-#btn_reset:focus {
     background: var(--color-strong-cyan);
-    color: var(--color-very-dark-cyan);
 }
 
-footer{
+footer {
     position: absolute;
     text-align: center;
     bottom: 0;
     margin: 30px 0;
     width: 100%;
+    font-size: 1em;
+    line-height: 1.1;
+}
+
+@media (max-width: 640px) {
+    .logo {
+        margin-top: 50px;
+        margin-bottom: 41px;
+    }
+
+    #tipcalculator {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .calculator-input,
+    .calculator-output {
+        padding: 2rem;
+        max-width: 41.3rem;
+        max-height: 41.7rem;
+        width: 100%;
+    }
+
+    .output-total {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
 }
