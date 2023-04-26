@@ -1,69 +1,79 @@
 <!DOCTYPE html>
 <html lang="en-us">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-    <meta name="description" content="A Tip Calculator app challenge by Frontend Mentor">
-    <link rel="stylesheet" href="./css/style.css" />
-    <link rel="icon" type="image/png" href="./images/favicon-32x32.png">
-    <title>Frontend Mentor | Tip calculator app</title>
-  </head>
 
-  <body>
-    <main>
-      <img src="./images/logo.svg" alt="Splitter logo" class="logo"/>
-      <form id="tipcalculator">
-        <div class="calculator-input">
-          <label for="bill" id="bill" class="input-labels">Bill
-            <input type="number" min="0" id="bill" data-bill="" name="bill" pattern="[0-9]*" required placeholder="0" class="input-box"/>
-            <img src="./images/icon-dollar.svg" alt="icon dollar" class="icons" />
-          </label>
-  
-          <label for="select-tip" id="select-tip" class="input-labels">Select Tip %
-            <div class="btn-list">
-              <button type="button" name="select-tip" id="btn-tip" class="btn" value="5%">5%</button>
-              <button type="button" name="select-tip" id="btn-tip" class="btn" value="10%">10%</button>
-              <button type="button" name="select-tip" id="btn-tip" class="btn" value="15%">15%</button>
-              <button type="button" name="select-tip" id="btn-tip" class="btn" value="25%">25%</button>
-              <button type="button" name="select-tip" id="btn-tip" class="btn" value="50%">50%</button>
-              <input type="input"  name="select-tip" id="btn-custom-tip" class="btn" placeholder="Custom" />
-            </div>
-          </label>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="description" content="A Tip Calculator app challenge by Frontend Mentor">
+  <link rel="stylesheet" href="./css/style.css" />
+  <link rel="icon" type="image/png" href="./images/favicon-32x32.png">
+  <title>Frontend Mentor | Tip calculator app</title>
+</head>
 
-          <label for="number-of-people" id="number-of-people" class="input-labels">Number of People
-            <input type="number" min="0" id="number-of-people" name="number-of-people" required placeholder="0" class="input-box"/>
-            <img src="./images/icon-person.svg" alt="icon person" class="icons" />
-            <p class="err-zero">Can't be zero</p>
-          </label>
-        </div>
+<body>
+  <header>
+    <img src="./images/logo.svg" alt="Splitter logo" class="logo" />
+  </header>
+  <main>
+    <form id="tipcalculator">
+      <div class="calculator-input">
+        <label for="bill" class="input-labels">Bill
+          <input type="number" min="0.0" id="bill-input" class="input-box" name="bill" pattern="[0-9]*" required
+            autofocus placeholder="0" />
+          <img src="./images/icon-dollar.svg" alt="icon dollar" class="icons" />
+        </label>
 
-        <div class="calculator-output">
-          <div class="output-container">
-            <div class="output-total">
-              <div class="total-amount">
-                <span for="tip-amount" id="tip-amount" class="total">Tip Amount</span>
-                <span class="person">/ person</span>
-              </div>
-              <span class="output">$0.00</span>
-            </div>
-            
-            <div class="output-total">
-              <div class="total-amount">
-                <span for="total" id="total" class="total">Total</span>
-                <span class="person">/ person</span>
-              </div>
-              <span class="output">$0.00</span>
-            </div>
+        <label for="select-tip" id="select-tip" class="input-labels">Select Tip %
+          <div class="btn-list">
+            <button type="button" name="select-tip" class="btn btn-tip" value="5">5%</button>
+            <button type="button" name="select-tip" class="btn btn-tip" value="1">10%</button>
+            <button type="button" name="select-tip" class="btn btn-tip" value="15">15%</button>
+            <button type="button" name="select-tip" class="btn btn-tip" value="25">25%</button>
+            <button type="button" name="select-tip" class="btn btn-tip" value="5">50%</button>
+            <input type="input" name="select-tip" class="btn btn-custom-tip" placeholder="Custom" />
           </div>
-          
-          <input type="reset" value="RESET" id="btn-reset" />
+        </label>
+
+        <label for="number-of-people" class="input-labels">Number of People <span class="err-zero" hidden>Can't be
+            zero</span>
+          <input type="number" min="0" id="number-of-people" class="input-box" name="number-of-people" required
+            placeholder="0" />
+          <img src="./images/icon-person.svg" alt="icon person" class="icons" />
+        </label>
+      </div>
+
+      <div class="calculator-results">
+        <div class="output-container">
+          <div class="output-total">
+            <div class="amount-value">
+              <span for="tip-amount" id="tip-amount" class="total">Tip Amount</span>
+              <span class="person">/ person</span>
+            </div>
+            <span id="tip-person" class="output">$0.00</span>
+          </div>
+
+          <div class="output-total">
+            <div class="amount-value">
+              <span for="total" id="total" class="total">Total</span>
+              <span class="person">/ person</span>
+            </div>
+            <span id="total-person" class="output">$0.00</span>
+          </div>
         </div>
 
-      </form>
-    </main>
-    <footer>
-      Challenge by 
-      <a href="https://www.frontendmentor.io/" target="_blank">Frontend Mentor</a>. Coded by <a href="https://github.com/brtiago" target="_blank">Tiago</a>.
-    </footer>
-  </body>
+        <input type="reset" value="RESET" id="btn-reset" />
+      </div>
+
+    </form>
+  </main>
+  <footer>
+    Challenge by
+    <a href="https://www.frontendmentor.io/" target="_blank">Frontend Mentor</a>. Coded by <a
+      href="https://github.com/brtiago" target="_blank">Tiago</a>.
+  </footer>
+
+  <script type="text/javascript" src="./js/app.js"></script>
+
+</body>
+
 </html>

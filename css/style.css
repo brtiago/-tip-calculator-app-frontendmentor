@@ -49,6 +49,13 @@ body {
     height: 100vh;
 }
 
+header{
+    width: 100%;
+    height: 14.4rem;
+    display: flex;
+    justify-content: center;
+}
+
 main {
     display: flex;
     flex-direction: column;
@@ -72,6 +79,7 @@ main {
     font-weight: 700;
     box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, .5);
     min-width: 34.8rem;
+    max-width: 78rem;
 }
 
 /* Entrada de dados */
@@ -136,38 +144,38 @@ main {
     padding-bottom: 0.4rem;
 }
 
-#btn-tip {
+.btn-tip {
     background: var(--color-very-dark-cyan);
     color: var(--color-White);
 }
 
-#btn-tip:hover {
+.btn-tip:hover {
     background: var(--color-light-grayish-cyan);
     color: var(--color-very-dark-cyan);
 }
 
-#btn-tip:focus {
+.btn-tip-active {
     background: var(--color-strong-cyan);
     color: var(--color-very-dark-cyan);
 }
 
-#btn-custom-tip {
+.btn-custom-tip {
     background: var(--color-very-light-grayish-cyan);
     color: var(--color-very-dark-cyan);
 }
 
-#btn-custom-tip:focus {
+.btn-custom-tip:focus {
     outline: solid 2px var(--color-strong-cyan);
     color: var(--color-very-dark-cyan);
 }
 
 .err-zero {
-    /*color: var(--color-orange);*/
-    color: var(--color-White);
+    color: var(--color-orange);
+    margin-left: 16px;
 }
 
 .calculator-input,
-.calculator-output {
+.calculator-results {
     padding: 2rem;
     max-width: 41.3rem;
     max-height: 41.7rem;
@@ -175,7 +183,7 @@ main {
 }
 
 /* Resultados */
-.calculator-output {
+.calculator-results {
     background: var(--color-very-dark-cyan);
     border-radius: 2.2rem;
     display: flex;
@@ -194,7 +202,7 @@ main {
     width:100%;
 }
 
-.total-amount {
+.amount-value {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -241,7 +249,6 @@ main {
 }
 
 footer {
-    position: absolute;
     text-align: center;
     bottom: 0;
     margin: 30px 0;
@@ -250,7 +257,7 @@ footer {
     line-height: 1.1;
 }
 
-@media (max-width: 640px) {
+@media (max-width: 640px){
     .logo {
         margin-top: 50px;
         margin-bottom: 41px;
@@ -276,3 +283,5 @@ footer {
         padding-right: 1rem;
     }
 }
+
+/*or (orientation: landscape) */
