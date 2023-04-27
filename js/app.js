@@ -13,14 +13,17 @@ let tip = 0.0;
 let bill = 0.0;
 let people = 1;
 
+
 inputBill.addEventListener('input', (e) => {
-    bill = (parseFloat(e.target.value));
+    bill = parseFloat(e.target.value);
     buttonReset.style.background = 'var(--color-strong-cyan)';
+    updateTipAndTotal();    
 });
 
-buttons.forEach(function(val) {
+
+buttons.forEach(function (val) {
     val.addEventListener('click', handleClick)
-}) ;
+});
 
 function handleClick(e) {
     buttons.forEach(function (val) {
@@ -31,34 +34,39 @@ function handleClick(e) {
         }
     });
     console.log(tip);
+    updateTipAndTotal();
 }
 
-
-inputCustomTip.addEventListener('blur', (e) => {
-    tip = (parseFloat(e.target.value));
+inputCustomTip.addEventListener('input', (e) => {
+    if (e.target.value === "") {
+        tip = 0.0;
+    } else {
+        tip = parseFloat(e.target.value);
+    }
+    buttons.forEach(function (val) {
+        val.classList.remove("btn-tip-active");
+    });
+    if (checkForValid(bill, people)) {
+        let tipCalculated = calculateTip(bill, tip, people);
+        setTipAmount(tipCalculated);
+        setTotalPerson(totalAmount(bill, tipCalculated, people));
+    }
 });
 
 inputNumberOfPeople.addEventListener('input', (e) => {
     people = parseInt(e.target.value);
     buttonReset.style.background = 'var(--color-strong-cyan)';
-    let tipCalculated = calculateTip(bill, tip, people);
-    console.log(tipCalculated);
-    console.log("Total Amount " + totalAmount(bill, tipCalculated, people));
-    let totalPerson = totalAmount(bill, tipCalculated, people);
-
-    if (checkForValid(tipCalculated,people)) {
-        setTipAmount(tipCalculated);
-        setTotalPerson(totalPerson);
-    }
+    updateTipAndTotal();
 
     if (people <= 0) {
         errZero.removeAttribute("hidden");
-    } 
-
+    } else {
+        errZero.setAttribute("hidden", "");
+    }
 });
 
 function calculateTip(billValue, tip, peopleQuantity) {
-    let tipAmount = (billValue * (tip/100)) / peopleQuantity;
+    let tipAmount = (billValue * (tip / 100)) / peopleQuantity;
     return parseFloat(Math.floor(tipAmount * 100) / 100);
     console.log('>[calculateTip] Done!');
 }
@@ -68,7 +76,7 @@ function totalAmount(billValue, tipCalculated, people) {
 }
 
 function checkForValid(bill, numPeople) {
-    if (isNaN(bill) || bill <= 0 || numPeople <= 0) {
+    if ( isNaN(numPeople) || isNaN(bill) || bill <= 0 || numPeople <= 0) {
         outputTipAmount.textContent = '-';
         outputTotalPerson.textContent = '-';
         return false;
@@ -92,6 +100,9 @@ function resetValues() {
     buttonReset.style.background = 'var(--color-light-cyan)';
     buttonReset.style.color = 'var(--color-very-dark-cyan)';
     errZero.setAttribute('hidden', '');
+    people = 1;
+    tip = 0;
+    bill = 0;
 };
 
 buttonReset.addEventListener('click', () => {
@@ -99,3 +110,15 @@ buttonReset.addEventListener('click', () => {
     resetValues();
     console.log('>[Reset] Done!');
 });
+
+function updateTipAndTotal() {
+    let tipCalculated = calculateTip(bill, tip, people);
+    console.log(tipCalculated);
+    console.log("Total Amount " + totalAmount(bill, tipCalculated, people));
+    let totalPerson = totalAmount(bill, tipCalculated, people);
+
+    if (checkForValid(bill, people)) {
+        setTipAmount(tipCalculated);
+        setTotalPerson(totalPerson);
+    }
+}
